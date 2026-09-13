@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — HuePic</title>
+<meta name="description" content="HuePic's Privacy Policy: what we collect, why, and who else can see it.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site">
+  <div class="site-inner">
+    <a class="wordmark" href="index.html">HuePic</a>
+    <nav class="top">
+      <a href="privacy.html" aria-current="page">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="community.html">Community</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="eyebrow">Legal</p>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: September 13, 2026</p>
+
+  <p class="draft-notice"><strong>Note:</strong> this policy was written by inspecting HuePic's
+  actual production code, database schema, and server functions — it's an accurate,
+  evidence-based description of what the app does today, not a substitute for legal advice.</p>
+
+  <h2>Who we are</h2>
+  <p>HuePic is made by <strong>EduMon Studios</strong>. If you have questions about this policy or
+  your data, see <a href="#contact">Contact</a> below.</p>
+
+  <h2>The short version</h2>
+  <p>HuePic is a daily color-matching photo game you play with friends. Most of what HuePic knows
+  about you lives only on your own device. The only things that ever leave your device are: an
+  anonymous account identifier, the display name and Find photos you actively choose to publish to
+  friends, your friend/group connections, reports you file, and (if you allow it) analytics/crash
+  data and ad requests. We don't sell your data. The sections below explain exactly what's
+  collected, why, and who else can see it.</p>
+
+  <h2>Information you provide directly</h2>
+  <ul>
+    <li><strong>Display name and avatar.</strong> You can set a display name (shown to friends) and
+    a profile picture. Your avatar photo stays on your device only — it is never uploaded anywhere.
+    Your display name is stored on our server (Supabase) so friends can see who's who.</li>
+    <li><strong>Sign in with Apple.</strong> HuePic works from the moment you open it, with no
+    account or login screen — an anonymous session is created automatically so your progress can
+    sync. If you choose <strong>Settings → Save account with Apple</strong>, HuePic uses Sign in
+    with Apple to attach a permanent identity to that same anonymous account (so nothing about your
+    history changes). Depending on what you allow Apple to share, this can include your name and an
+    email address (which may be an Apple-generated private relay address rather than your real
+    one). We store Apple's own stable, per-app identifier for your account for reference; we do not
+    use it for anything beyond making sign-in work.</li>
+    <li><strong>Friend connections.</strong> Adding a friend (by invite code or QR scan), accepting
+    or declining a friend request, and removing or blocking someone are all stored against your
+    account so the Friends feature works.</li>
+    <li><strong>Friend Groups.</strong> Creating, joining, or leaving a Friend Group, and your
+    membership/role in it, are stored the same way.</li>
+    <li><strong>Reports.</strong> If you report another user's Find, we store who filed the report,
+    who/what was reported, the reason you selected, and any note you added. Reports are visible
+    only to HuePic for review — never to other users, including the person you reported.</li>
+  </ul>
+
+  <h2>The daily photo challenge</h2>
+  <ul>
+    <li><strong>Every attempt is saved to your device</strong>, whether or not you ever publish it
+    — including photos you retake or never share. This private history never leaves your device
+    unless you explicitly publish a Find.</li>
+    <li><strong>Publishing a Find</strong> is a separate, deliberate action ("Make This My Find").
+    Only the one photo you choose to publish for a given day — never your other attempts — is
+    uploaded to our storage provider (Cloudflare R2), along with its score, the target and captured
+    colors, and where you tapped on the photo.</li>
+    <li>Photos are re-encoded before upload, which as a side effect strips embedded metadata such as
+    GPS location and device information. <strong>HuePic does not request or collect your
+    location.</strong></li>
+    <li>Your device never receives a permanent public link to an uploaded photo — only short-lived,
+    expiring download links generated on demand by our server, and only for people who are actually
+    allowed to see that photo (you, or an accepted friend once it's approved and revealed).</li>
+    <li><strong>Published photos are automatically deleted from our storage provider no later than
+    about 72 hours after they're published</strong>, regardless of whether your account still
+    exists at that point. The score, date, and color metadata for that day are kept as part of your
+    history (see <a href="#retention">Retention</a>).</li>
+  </ul>
+
+  <h2>Automated content moderation</h2>
+  <p>Every photo you publish is screened by an automated moderation service (Microsoft Azure AI
+  Content Safety) before it's shown to any friend. The photo's bytes are sent directly from our
+  server to Azure for analysis and are not stored by Azure beyond what's needed to return a result;
+  Azure never receives your name, friend list, or any other profile information — only the image
+  itself. If the service is unavailable or returns something HuePic doesn't recognize, the photo is
+  held back rather than shown (never auto-approved). We keep a record of the moderation outcome
+  (approved/rejected, which category if rejected) tied to that specific photo, for as long as your
+  account exists, so the same rejected photo can't simply be resubmitted.</p>
+
+  <h2>Friends, groups, and reactions</h2>
+  <p>Your Finds are visible to your accepted friends (and, if you're in one, your Friend Group)
+  only after they're approved by moderation, and only for a short window (the current and
+  immediately prior daily challenge) — HuePic doesn't keep a scrollable public history of your
+  friends' old posts. "Hearts" (reactions) are anonymous to other users — the person you hearted
+  never sees who hearted them — but a heart is still recorded against your account internally, the
+  same way a report is, so the system can enforce "one heart per person per day" and prevent
+  hearting your own Find.</p>
+
+  <h2>Analytics and crash diagnostics</h2>
+  <p>HuePic uses PostHog for basic product analytics and crash/error reporting, active only in
+  production/TestFlight builds (never during local development). What this does and doesn't
+  include:</p>
+  <ul>
+    <li>You're identified to PostHog only by an opaque internal account identifier — never your
+    name, email, avatar, or any other personal detail.</li>
+    <li>Every event HuePic sends goes through an allow-listed vocabulary of specific product events
+    (e.g., "a Find was published," "a rewarded ad was watched") — not a general activity log.</li>
+    <li>A defense-in-depth filter strips anything that looks like a token, password, email address,
+    photo/file URI, invite code, or similar sensitive value from every event and crash report
+    before it's sent, even if it were accidentally included.</li>
+    <li>Session replay, precise location/GeoIP enrichment, surveys, and remote feature flags are all
+    turned off — HuePic doesn't use any of them.</li>
+    <li>Crash reports may include technical diagnostic information (device/OS type, app version,
+    stack traces) needed to fix bugs.</li>
+  </ul>
+
+  <h2>Advertising</h2>
+  <p>HuePic shows ads through Google AdMob in exactly one place: an optional "Watch an ad" option
+  that unlocks extra Find submissions on days you've used your free daily allowance. Ads are never
+  shown anywhere else, and watching one is always your choice — never required to play. HuePic
+  requests only non-personalized ads, does not use Apple's App Tracking Transparency framework, and
+  does not intentionally access your device's advertising identifier. Before requesting any ad,
+  HuePic runs Google's own consent flow, which shows a consent form where one is legally required
+  (for example, in the EEA/UK) and does nothing otherwise. Confirming you watched an ad all the way
+  through is verified by our server using an opaque request identifier — not any personal
+  information.</p>
+  <p><em>Note: AdMob and Google's underlying ad-serving infrastructure are third-party services we
+  don't fully control — see <a href="#third-party">Third-party services</a> below.</em></p>
+
+  <h2 id="third-party">Third-party services</h2>
+  <p>HuePic relies on the following outside services to work. None of them are paid for with, or
+  ever receive, a sale of your data — they're processors we use to run the app.</p>
+  <div class="table-scroll">
+  <table>
+    <thead>
+      <tr><th>Service</th><th>What it's used for</th><th>What it can see</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Apple</strong></td><td>Sign-in, App Store distribution, push infrastructure (not currently used for social notifications)</td><td>Whatever you choose to share via Sign in with Apple</td></tr>
+      <tr><td><strong>Supabase</strong></td><td>Our backend database and authentication</td><td>Your account, profile, friend graph, groups, reports, and Find metadata</td></tr>
+      <tr><td><strong>Cloudflare R2</strong></td><td>Temporary storage for published Find photos</td><td>The photo file itself, for up to ~72 hours</td></tr>
+      <tr><td><strong>Microsoft Azure AI Content Safety</strong></td><td>Automated photo moderation</td><td>The photo file only, at the moment you publish</td></tr>
+      <tr><td><strong>PostHog</strong></td><td>Analytics and crash reporting</td><td>An opaque account identifier and sanitized event/crash data</td></tr>
+      <tr><td><strong>Google AdMob</strong></td><td>Optional rewarded video ads</td><td>Standard ad-request data; no personal profile information from HuePic</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Each of these providers has its own privacy practices and security logs that HuePic does not
+  control and cannot certify beyond what's stated in this policy — see their own privacy policies
+  for details on how they handle data on their side.</p>
+
+  <h2 id="retention">Retention and deletion</h2>
+  <ul>
+    <li><strong>Local device data</strong> (your private capture history, avatar, app settings,
+    reminder time) stays on your device until you clear it or uninstall the app.</li>
+    <li><strong>Published Find photos</strong> are deleted from cloud storage automatically within
+    about 72 hours of publishing.</li>
+    <li><strong>Find metadata</strong> (score, date, target/found color, whether it was published)
+    is kept as part of your personal history for as long as your account exists.</li>
+    <li><strong>Reports, blocks, and moderation records</strong> are kept for as long as your
+    account exists, to keep the reporting/blocking system working correctly.</li>
+    <li><strong>Deleting your account</strong> (Settings → Delete account) permanently removes your
+    profile, friend connections, group memberships, reports, blocks, reactions, Find history, and
+    your underlying account itself — not just a deactivation. See
+    <a href="#account-deletion">Account deletion</a> below for exactly what this does.</li>
+  </ul>
+
+  <h2 id="account-deletion">Account deletion</h2>
+  <p>Settings → Delete account is available to anyone using the app — you don't need to have saved
+  your account with Sign in with Apple first. It:</p>
+  <ol>
+    <li>Deletes your profile and, through it, every friendship, friend request, group membership,
+    report, block, reaction, and Find record tied to your account.</li>
+    <li>Deletes the underlying account identity itself (not just the data associated with it), so
+    nothing about you remains sign-in-able afterward.</li>
+  </ol>
+  <p>This can't be undone, and there's no "grace period" — deletion happens immediately when you
+  confirm it. Deleting your account is separate from <strong>Settings → Clear all records</strong>,
+  which only erases your private photo history stored on this device and does not touch your
+  account or anything already published to friends — use Delete account for that.</p>
+
+  <h2>Local device data</h2>
+  <p>Your private capture history (every Find attempt, published or not), your avatar photo, your
+  app preferences, and your reminder settings are stored only on your device using standard iOS
+  local storage. HuePic never uploads this local history — only the one photo per day you
+  explicitly choose to publish ever reaches our servers.</p>
+
+  <h2>Security</h2>
+  <p>Data in transit to and from Supabase, Cloudflare R2, and Azure is encrypted (HTTPS/TLS).
+  Access to your data on our backend is enforced by database-level row-level-security rules scoped
+  to your own account. Photo storage uses short-lived, single-purpose links rather than permanent
+  public URLs. No system is perfectly secure, and we can't guarantee absolute security of any
+  information you transmit to us.</p>
+
+  <h2>International data processing</h2>
+  <p>HuePic's backend and analytics infrastructure run on servers operated by our service
+  providers, which may be located in the United States or other countries. By using HuePic, you
+  understand your information may be processed outside your own country.</p>
+
+  <h2>Children</h2>
+  <p>HuePic is not directed at children, and we don't knowingly collect information from children
+  under the age required by applicable law in your region. If you believe a child has provided us
+  information, contact us using the details below and we'll remove it.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>We may update this policy as HuePic changes. We'll update the "Last updated" date above when
+  we do; continuing to use HuePic after a change means you accept the updated policy.</p>
+
+  <h2 id="contact">Contact</h2>
+  <p>Questions about this policy or your data:
+  <a href="mailto:support-findhue@edumon.studio">support-findhue@edumon.studio</a>, or visit our
+  <a href="support.html">Support page</a> for other ways to reach us.</p>
+</main>
+
+<footer class="site">
+  <nav>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="community.html">Community</a>
+    <a href="support.html">Support</a>
+  </nav>
+  <p>© 2026 EduMon Studios.</p>
+</footer>
+</body>
+</html>

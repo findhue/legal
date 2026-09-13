@@ -1,0 +1,273 @@
+:root {
+  --bg: #faf8f4;
+  --surface: #ffffff;
+  --ink: #1c1a17;
+  --ink-2: #57534a;
+  --ink-3: #8a8478;
+  --line: #e7e2d8;
+  --accent: #b6752e;
+  --accent-ink: #ffffff;
+  --code-bg: #f1ede4;
+  --warn-bg: #fbf1e6;
+  --warn-line: #e9d3ae;
+  --max-width: 46rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161513;
+    --surface: #1e1c19;
+    --ink: #f2efe9;
+    --ink-2: #c9c3b6;
+    --ink-3: #8f897c;
+    --line: #322f29;
+    --accent: #e0a55c;
+    --accent-ink: #1c1a17;
+    --code-bg: #26241f;
+    --warn-bg: #2a2318;
+    --warn-line: #4a3c22;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+header.site {
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.site-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.wordmark {
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+nav.top a {
+  color: var(--ink-2);
+  text-decoration: none;
+  font-size: 14px;
+  margin-left: 18px;
+}
+
+nav.top a:hover,
+nav.top a:focus-visible,
+nav.top a[aria-current="page"] {
+  color: var(--accent);
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+.eyebrow {
+  color: var(--ink-3);
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+
+h1 {
+  font-size: 30px;
+  line-height: 1.2;
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+}
+
+.updated {
+  color: var(--ink-3);
+  font-size: 13.5px;
+  margin: 0 0 28px;
+}
+
+.draft-notice {
+  background: var(--warn-bg);
+  border: 1px solid var(--warn-line);
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 14px;
+  color: var(--ink-2);
+  margin: 0 0 32px;
+}
+
+.draft-notice strong {
+  color: var(--ink);
+}
+
+h2 {
+  font-size: 20px;
+  margin: 40px 0 12px;
+  padding-top: 4px;
+  letter-spacing: -0.005em;
+}
+
+h2:first-of-type {
+  margin-top: 8px;
+}
+
+p, li {
+  color: var(--ink-2);
+  font-size: 15.5px;
+}
+
+a {
+  color: var(--accent);
+}
+
+ul, ol {
+  padding-left: 1.2em;
+}
+
+li {
+  margin-bottom: 6px;
+}
+
+strong {
+  color: var(--ink);
+}
+
+code {
+  background: var(--code-bg);
+  padding: 0.1em 0.4em;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 8px;
+  font-size: 14px;
+}
+
+caption {
+  caption-side: bottom;
+  text-align: left;
+  color: var(--ink-3);
+  font-size: 13px;
+  padding-top: 8px;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+th {
+  color: var(--ink-3);
+  font-weight: 600;
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.table-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.table-scroll table {
+  margin: 0;
+}
+
+.table-scroll th:first-child,
+.table-scroll td:first-child {
+  padding-left: 14px;
+}
+
+hr.section {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 40px 0;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+@media (max-width: 480px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.card h3 {
+  margin: 0 0 4px;
+  font-size: 16px;
+}
+
+.card p {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--ink-3);
+}
+
+.intro {
+  font-size: 16.5px;
+  color: var(--ink-2);
+}
+
+footer.site {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 24px 24px 60px;
+  color: var(--ink-3);
+  font-size: 13px;
+  border-top: 1px solid var(--line);
+}
+
+footer.site nav a {
+  color: var(--ink-3);
+  margin-right: 16px;
+  text-decoration: none;
+}
+
+footer.site nav a:hover {
+  color: var(--accent);
+}
