@@ -1,9 +1,9 @@
-# huepic-legal
+# findhue/legal
 
-Published legal/support pages for **HuePic** (EduMon Studios), served via GitHub Pages.
+Published legal/support pages for **FindHue** (EduMon Studios), served via GitHub Pages.
 
-Live at: `https://<your-github-username>.github.io/huepic-legal/` once Pages is enabled
-(Settings → Pages → Deploy from a branch → `main` / `/ (root)`).
+Live at: `https://findhue.github.io/legal/` once Pages is enabled (Settings → Pages → Deploy from
+a branch → `main` / `/ (root)`).
 
 | Page | Path |
 |---|---|
@@ -15,9 +15,9 @@ Live at: `https://<your-github-username>.github.io/huepic-legal/` once Pages is 
 ## Source of truth
 
 This is a static HTML rendering. The canonical Markdown content this was generated from lives in
-the main HuePic app repo at `docs/legal/*.md` (private repo — not this one), along with the full
-evidence trail (which code/schema/function backs each claim) and the App Store Connect App Privacy
-data map. Edit content there first, then re-render/update the HTML here to match.
+the main app repo at `docs/legal/*.md` (private repo — not this one), along with the full evidence
+trail (which code/schema/function backs each claim) and the App Store Connect App Privacy data map.
+Edit content there first, then re-render/update the HTML here to match.
 
 ## Why a separate repo
 

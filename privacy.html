@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy Policy — HuePic</title>
-<meta name="description" content="HuePic's Privacy Policy: what we collect, why, and who else can see it.">
+<title>Privacy Policy — FindHue</title>
+<meta name="description" content="FindHue's Privacy Policy: what we collect, why, and who else can see it.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="site">
   <div class="site-inner">
-    <a class="wordmark" href="index.html">HuePic</a>
+    <a class="wordmark" href="index.html">FindHue</a>
     <nav class="top">
       <a href="privacy.html" aria-current="page">Privacy</a>
       <a href="terms.html">Terms</a>
@@ -25,16 +25,16 @@
   <h1>Privacy Policy</h1>
   <p class="updated">Last updated: September 13, 2026</p>
 
-  <p class="draft-notice"><strong>Note:</strong> this policy was written by inspecting HuePic's
+  <p class="draft-notice"><strong>Note:</strong> this policy was written by inspecting FindHue's
   actual production code, database schema, and server functions — it's an accurate,
   evidence-based description of what the app does today, not a substitute for legal advice.</p>
 
   <h2>Who we are</h2>
-  <p>HuePic is made by <strong>EduMon Studios</strong>. If you have questions about this policy or
+  <p>FindHue is made by <strong>EduMon Studios</strong>. If you have questions about this policy or
   your data, see <a href="#contact">Contact</a> below.</p>
 
   <h2>The short version</h2>
-  <p>HuePic is a daily color-matching photo game you play with friends. Most of what HuePic knows
+  <p>FindHue is a daily color-matching photo game you play with friends. Most of what FindHue knows
   about you lives only on your own device. The only things that ever leave your device are: an
   anonymous account identifier, the display name and Find photos you actively choose to publish to
   friends, your friend/group connections, reports you file, and (if you allow it) analytics/crash
@@ -46,9 +46,9 @@
     <li><strong>Display name and avatar.</strong> You can set a display name (shown to friends) and
     a profile picture. Your avatar photo stays on your device only — it is never uploaded anywhere.
     Your display name is stored on our server (Supabase) so friends can see who's who.</li>
-    <li><strong>Sign in with Apple.</strong> HuePic works from the moment you open it, with no
+    <li><strong>Sign in with Apple.</strong> FindHue works from the moment you open it, with no
     account or login screen — an anonymous session is created automatically so your progress can
-    sync. If you choose <strong>Settings → Save account with Apple</strong>, HuePic uses Sign in
+    sync. If you choose <strong>Settings → Save account with Apple</strong>, FindHue uses Sign in
     with Apple to attach a permanent identity to that same anonymous account (so nothing about your
     history changes). Depending on what you allow Apple to share, this can include your name and an
     email address (which may be an Apple-generated private relay address rather than your real
@@ -61,7 +61,7 @@
     membership/role in it, are stored the same way.</li>
     <li><strong>Reports.</strong> If you report another user's Find, we store who filed the report,
     who/what was reported, the reason you selected, and any note you added. Reports are visible
-    only to HuePic for review — never to other users, including the person you reported.</li>
+    only to FindHue for review — never to other users, including the person you reported.</li>
   </ul>
 
   <h2>The daily photo challenge</h2>
@@ -74,7 +74,7 @@
     uploaded to our storage provider (Cloudflare R2), along with its score, the target and captured
     colors, and where you tapped on the photo.</li>
     <li>Photos are re-encoded before upload, which as a side effect strips embedded metadata such as
-    GPS location and device information. <strong>HuePic does not request or collect your
+    GPS location and device information. <strong>FindHue does not request or collect your
     location.</strong></li>
     <li>Your device never receives a permanent public link to an uploaded photo — only short-lived,
     expiring download links generated on demand by our server, and only for people who are actually
@@ -90,7 +90,7 @@
   Content Safety) before it's shown to any friend. The photo's bytes are sent directly from our
   server to Azure for analysis and are not stored by Azure beyond what's needed to return a result;
   Azure never receives your name, friend list, or any other profile information — only the image
-  itself. If the service is unavailable or returns something HuePic doesn't recognize, the photo is
+  itself. If the service is unavailable or returns something FindHue doesn't recognize, the photo is
   held back rather than shown (never auto-approved). We keep a record of the moderation outcome
   (approved/rejected, which category if rejected) tied to that specific photo, for as long as your
   account exists, so the same rejected photo can't simply be resubmitted.</p>
@@ -98,37 +98,37 @@
   <h2>Friends, groups, and reactions</h2>
   <p>Your Finds are visible to your accepted friends (and, if you're in one, your Friend Group)
   only after they're approved by moderation, and only for a short window (the current and
-  immediately prior daily challenge) — HuePic doesn't keep a scrollable public history of your
+  immediately prior daily challenge) — FindHue doesn't keep a scrollable public history of your
   friends' old posts. "Hearts" (reactions) are anonymous to other users — the person you hearted
   never sees who hearted them — but a heart is still recorded against your account internally, the
   same way a report is, so the system can enforce "one heart per person per day" and prevent
   hearting your own Find.</p>
 
   <h2>Analytics and crash diagnostics</h2>
-  <p>HuePic uses PostHog for basic product analytics and crash/error reporting, active only in
+  <p>FindHue uses PostHog for basic product analytics and crash/error reporting, active only in
   production/TestFlight builds (never during local development). What this does and doesn't
   include:</p>
   <ul>
     <li>You're identified to PostHog only by an opaque internal account identifier — never your
     name, email, avatar, or any other personal detail.</li>
-    <li>Every event HuePic sends goes through an allow-listed vocabulary of specific product events
+    <li>Every event FindHue sends goes through an allow-listed vocabulary of specific product events
     (e.g., "a Find was published," "a rewarded ad was watched") — not a general activity log.</li>
     <li>A defense-in-depth filter strips anything that looks like a token, password, email address,
     photo/file URI, invite code, or similar sensitive value from every event and crash report
     before it's sent, even if it were accidentally included.</li>
     <li>Session replay, precise location/GeoIP enrichment, surveys, and remote feature flags are all
-    turned off — HuePic doesn't use any of them.</li>
+    turned off — FindHue doesn't use any of them.</li>
     <li>Crash reports may include technical diagnostic information (device/OS type, app version,
     stack traces) needed to fix bugs.</li>
   </ul>
 
   <h2>Advertising</h2>
-  <p>HuePic shows ads through Google AdMob in exactly one place: an optional "Watch an ad" option
+  <p>FindHue shows ads through Google AdMob in exactly one place: an optional "Watch an ad" option
   that unlocks extra Find submissions on days you've used your free daily allowance. Ads are never
-  shown anywhere else, and watching one is always your choice — never required to play. HuePic
+  shown anywhere else, and watching one is always your choice — never required to play. FindHue
   requests only non-personalized ads, does not use Apple's App Tracking Transparency framework, and
   does not intentionally access your device's advertising identifier. Before requesting any ad,
-  HuePic runs Google's own consent flow, which shows a consent form where one is legally required
+  FindHue runs Google's own consent flow, which shows a consent form where one is legally required
   (for example, in the EEA/UK) and does nothing otherwise. Confirming you watched an ad all the way
   through is verified by our server using an opaque request identifier — not any personal
   information.</p>
@@ -136,7 +136,7 @@
   don't fully control — see <a href="#third-party">Third-party services</a> below.</em></p>
 
   <h2 id="third-party">Third-party services</h2>
-  <p>HuePic relies on the following outside services to work. None of them are paid for with, or
+  <p>FindHue relies on the following outside services to work. None of them are paid for with, or
   ever receive, a sale of your data — they're processors we use to run the app.</p>
   <div class="table-scroll">
   <table>
@@ -149,11 +149,11 @@
       <tr><td><strong>Cloudflare R2</strong></td><td>Temporary storage for published Find photos</td><td>The photo file itself, for up to ~72 hours</td></tr>
       <tr><td><strong>Microsoft Azure AI Content Safety</strong></td><td>Automated photo moderation</td><td>The photo file only, at the moment you publish</td></tr>
       <tr><td><strong>PostHog</strong></td><td>Analytics and crash reporting</td><td>An opaque account identifier and sanitized event/crash data</td></tr>
-      <tr><td><strong>Google AdMob</strong></td><td>Optional rewarded video ads</td><td>Standard ad-request data; no personal profile information from HuePic</td></tr>
+      <tr><td><strong>Google AdMob</strong></td><td>Optional rewarded video ads</td><td>Standard ad-request data; no personal profile information from FindHue</td></tr>
     </tbody>
   </table>
   </div>
-  <p>Each of these providers has its own privacy practices and security logs that HuePic does not
+  <p>Each of these providers has its own privacy practices and security logs that FindHue does not
   control and cannot certify beyond what's stated in this policy — see their own privacy policies
   for details on how they handle data on their side.</p>
 
@@ -190,7 +190,7 @@
   <h2>Local device data</h2>
   <p>Your private capture history (every Find attempt, published or not), your avatar photo, your
   app preferences, and your reminder settings are stored only on your device using standard iOS
-  local storage. HuePic never uploads this local history — only the one photo per day you
+  local storage. FindHue never uploads this local history — only the one photo per day you
   explicitly choose to publish ever reaches our servers.</p>
 
   <h2>Security</h2>
@@ -201,18 +201,18 @@
   information you transmit to us.</p>
 
   <h2>International data processing</h2>
-  <p>HuePic's backend and analytics infrastructure run on servers operated by our service
-  providers, which may be located in the United States or other countries. By using HuePic, you
+  <p>FindHue's backend and analytics infrastructure run on servers operated by our service
+  providers, which may be located in the United States or other countries. By using FindHue, you
   understand your information may be processed outside your own country.</p>
 
   <h2>Children</h2>
-  <p>HuePic is not directed at children, and we don't knowingly collect information from children
+  <p>FindHue is not directed at children, and we don't knowingly collect information from children
   under the age required by applicable law in your region. If you believe a child has provided us
   information, contact us using the details below and we'll remove it.</p>
 
   <h2>Changes to this policy</h2>
-  <p>We may update this policy as HuePic changes. We'll update the "Last updated" date above when
-  we do; continuing to use HuePic after a change means you accept the updated policy.</p>
+  <p>We may update this policy as FindHue changes. We'll update the "Last updated" date above when
+  we do; continuing to use FindHue after a change means you accept the updated policy.</p>
 
   <h2 id="contact">Contact</h2>
   <p>Questions about this policy or your data:
