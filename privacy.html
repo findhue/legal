@@ -34,12 +34,11 @@
   your data, see <a href="#contact">Contact</a> below.</p>
 
   <h2>The short version</h2>
-  <p>FindHue is a daily color-matching photo game you play with friends. Most of what FindHue knows
-  about you lives only on your own device. The only things that ever leave your device are: an
-  anonymous account identifier, the display name and Find photos you actively choose to publish to
-  friends, your friend/group connections, reports you file, and (if you allow it) analytics/crash
-  data and ad requests. We don't sell your data. The sections below explain exactly what's
-  collected, why, and who else can see it.</p>
+  <p>FindHue is a daily color-matching photo game you play with friends. Private capture attempts
+  stay on your device unless you deliberately publish a Find, but the app and its service providers
+  also process account, connection, security, diagnostic, analytics, and advertising information
+  needed to operate the service. We don't sell your data. The sections below explain what's
+  collected, why, and who else may process it.</p>
 
   <h2>Information you provide directly</h2>
   <ul>
@@ -66,43 +65,62 @@
 
   <h2>The daily photo challenge</h2>
   <ul>
-    <li><strong>Every attempt is saved to your device</strong>, whether or not you ever publish it
-    — including photos you retake or never share. This private history never leaves your device
-    unless you explicitly publish a Find.</li>
+    <li><strong>Every private capture attempt is saved locally</strong>, whether or not you ever
+    publish it — including photos you retake or never share. Taking or scoring a photo does not
+    itself upload it. Local history may include the photo, challenge date, score, target and found
+    colors, selected point, and related local metadata. FindHue does not cloud-sync this entire
+    history.</li>
     <li><strong>Publishing a Find</strong> is a separate, deliberate action ("Make This My Find").
     Only the one photo you choose to publish for a given day — never your other attempts — is
-    uploaded to our storage provider (Cloudflare R2), along with its score, the target and captured
-    colors, and where you tapped on the photo.</li>
-    <li>Photos are re-encoded before upload, which as a side effect strips embedded metadata such as
-    GPS location and device information. <strong>FindHue does not request or collect your
-    location.</strong></li>
+    uploaded to our storage provider (Cloudflare R2), along with its score, challenge date, target
+    color, detected color, selected point, internal account identifier, and required technical
+    metadata.</li>
+    <li>Photos are re-encoded before upload, which removes normal embedded EXIF/GPS and device
+    metadata from the uploaded image. FindHue does not request precise iOS location permission for
+    the challenge and does not intentionally upload GPS coordinates from Find photos. Third parties
+    such as Google may infer coarse location from network or IP information.</li>
     <li>Your device never receives a permanent public link to an uploaded photo — only short-lived,
     expiring download links generated on demand by our server, and only for people who are actually
     allowed to see that photo (you, or an accepted friend once it's approved and revealed).</li>
-    <li><strong>Published photos are automatically deleted from our storage provider no later than
-    about 72 hours after they're published</strong>, regardless of whether your account still
-    exists at that point. The score, date, and color metadata for that day are kept as part of your
-    history (see <a href="#retention">Retention</a>).</li>
+    <li><strong>Published Find photos are scheduled for automatic deletion approximately 48 hours
+    after posting.</strong> Operational failures, retries, legal or security needs, or similar
+    circumstances may occasionally cause deletion to occur later. Metadata may be retained longer
+    (see <a href="#retention">Retention</a>).</li>
   </ul>
 
   <h2>Automated content moderation</h2>
-  <p>Every photo you publish is screened by an automated moderation service (Microsoft Azure AI
-  Content Safety) before it's shown to any friend. The photo's bytes are sent directly from our
-  server to Azure for analysis and are not stored by Azure beyond what's needed to return a result;
-  Azure never receives your name, friend list, or any other profile information — only the image
-  itself. If the service is unavailable or returns something FindHue doesn't recognize, the photo is
-  held back rather than shown (never auto-approved). We keep a record of the moderation outcome
-  (approved/rejected, which category if rejected) tied to that specific photo, for as long as your
-  account exists, so the same rejected photo can't simply be resubmitted.</p>
+  <p>Every newly published Find is screened by Microsoft Azure AI Content Safety before it is shown
+  to other users. FindHue sends the image needed for moderation; profile or social information is
+  not intentionally included in that image request. Moderation failures fail closed: a transient
+  failure or unrecognized result holds the Find back rather than approving it automatically. We may
+  retain the verdict, category, severity, provider, policy, and timestamp for moderation and safety
+  operations. Automated moderation is not infallible.</p>
 
   <h2>Friends, groups, and reactions</h2>
-  <p>Your Finds are visible to your accepted friends (and, if you're in one, your Friend Group)
-  only after they're approved by moderation, and only for a short window (the current and
-  immediately prior daily challenge) — FindHue doesn't keep a scrollable public history of your
-  friends' old posts. "Hearts" (reactions) are anonymous to other users — the person you hearted
-  never sees who hearted them — but a heart is still recorded against your account internally, the
-  same way a report is, so the system can enforce "one heart per person per day" and prevent
-  hearting your own Find.</p>
+  <p>Your Finds may be visible to accepted friends and eligible Friend Group members only after
+  moderation, and only for a short window: the current and immediately prior challenge. FindHue
+  does not keep a scrollable public history of old posts. Hearts are tied internally to an account
+  for enforcement but anonymous to other users. FindHue may calculate Closest Match and Crowd
+  Favorite; these are entertainment and social features, not financial prizes.</p>
+
+  <h2>Automatically collected technical data</h2>
+  <p>Backend infrastructure and SDKs may process technical information such as IP address,
+  operating system, device and platform data, app version and build, request timestamps,
+  network/server logs, internal account identifiers, crash data, stack traces, performance data,
+  advertising interactions, and related ad-delivery information.</p>
+
+  <h2>How we use information and legal bases</h2>
+  <p>FindHue uses information for account and authentication, publishing, Friends and Friend Groups,
+  moderation, reporting and blocking, reactions and reveals, anti-abuse limits, rewarded ads,
+  diagnostics, analytics, security and fraud prevention, and legal obligations. Depending on the
+  situation, our legal basis may be performance of the service contract, legitimate interests,
+  consent, or legal obligations. Consent is not the legal basis for every processing activity.</p>
+
+  <h2>Privacy rights</h2>
+  <p>Depending on where you live, you may have rights to access, correct, delete, restrict or object
+  to processing, receive portable data, withdraw consent, and complain to a data-protection
+  authority. We may need to verify your identity before completing a request. Contact us using the
+  details below.</p>
 
   <h2>Analytics and crash diagnostics</h2>
   <p>FindHue uses PostHog for basic product analytics and crash/error reporting, active only in
@@ -123,21 +141,21 @@
   </ul>
 
   <h2>Advertising</h2>
-  <p>FindHue shows ads through Google AdMob in exactly one place: an optional "Watch an ad" option
-  that unlocks extra Find submissions on days you've used your free daily allowance. Ads are never
-  shown anywhere else, and watching one is always your choice — never required to play. FindHue
-  requests only non-personalized ads, does not use Apple's App Tracking Transparency framework, and
-  does not intentionally access your device's advertising identifier. Before requesting any ad,
-  FindHue runs Google's own consent flow, which shows a consent form where one is legally required
-  (for example, in the EEA/UK) and does nothing otherwise. Confirming you watched an ad all the way
-  through is verified by our server using an opaque request identifier — not any personal
-  information.</p>
+  <p>The first 3 Find submissions or replacements per challenge day are free. After that, an
+  additional Find submission may require one successfully completed and server-verified rewarded
+  ad. Private captures and scoring remain unlimited and do not require an ad. FindHue requests
+  non-personalized ads, does not request App Tracking Transparency permission, and does not
+  intentionally provide Google with your Find photo, display name, email, friend list, or private
+  history. Google and ad infrastructure may nevertheless process IP address, coarse location
+  inferred from IP, device and app identifiers, ad interactions, advertising and consent data,
+  crash/performance information, and related ad-delivery data. Rewarded-ad completion is granted
+  only after server-side verification.</p>
   <p><em>Note: AdMob and Google's underlying ad-serving infrastructure are third-party services we
   don't fully control — see <a href="#third-party">Third-party services</a> below.</em></p>
 
   <h2 id="third-party">Third-party services</h2>
-  <p>FindHue relies on the following outside services to work. None of them are paid for with, or
-  ever receive, a sale of your data — they're processors we use to run the app.</p>
+  <p>FindHue relies on service providers and third-party services to operate the app. Each may
+  process the categories described below under its own terms and privacy practices.</p>
   <div class="table-scroll">
   <table>
     <thead>
@@ -146,10 +164,10 @@
     <tbody>
       <tr><td><strong>Apple</strong></td><td>Sign-in, App Store distribution, push infrastructure (not currently used for social notifications)</td><td>Whatever you choose to share via Sign in with Apple</td></tr>
       <tr><td><strong>Supabase</strong></td><td>Our backend database and authentication</td><td>Your account, profile, friend graph, groups, reports, and Find metadata</td></tr>
-      <tr><td><strong>Cloudflare R2</strong></td><td>Temporary storage for published Find photos</td><td>The photo file itself, for up to ~72 hours</td></tr>
+      <tr><td><strong>Cloudflare R2</strong></td><td>Temporary storage for published Find photos</td><td>The selected photo, generally scheduled for deletion after ~48 hours</td></tr>
       <tr><td><strong>Microsoft Azure AI Content Safety</strong></td><td>Automated photo moderation</td><td>The photo file only, at the moment you publish</td></tr>
       <tr><td><strong>PostHog</strong></td><td>Analytics and crash reporting</td><td>An opaque account identifier and sanitized event/crash data</td></tr>
-      <tr><td><strong>Google AdMob</strong></td><td>Optional rewarded video ads</td><td>Standard ad-request data; no personal profile information from FindHue</td></tr>
+      <tr><td><strong>Google AdMob</strong></td><td>Optional rewarded video ads and consent management</td><td>Ad-request, device/app, IP/coarse-location, consent, interaction, crash, and performance data</td></tr>
     </tbody>
   </table>
   </div>
@@ -161,15 +179,15 @@
   <ul>
     <li><strong>Local device data</strong> (your private capture history, avatar, app settings,
     reminder time) stays on your device until you clear it or uninstall the app.</li>
-    <li><strong>Published Find photos</strong> are deleted from cloud storage automatically within
-    about 72 hours of publishing.</li>
+    <li><strong>Published Find photos</strong> are scheduled for deletion approximately 48 hours
+    after posting, but operational failures, retries, legal/security needs, or similar circumstances
+    may delay deletion. Metadata may remain longer.</li>
     <li><strong>Find metadata</strong> (score, date, target/found color, whether it was published)
     is kept as part of your personal history for as long as your account exists.</li>
     <li><strong>Reports, blocks, and moderation records</strong> are kept for as long as your
     account exists, to keep the reporting/blocking system working correctly.</li>
-    <li><strong>Deleting your account</strong> (Settings → Delete account) permanently removes your
-    profile, friend connections, group memberships, reports, blocks, reactions, Find history, and
-    your underlying account itself — not just a deactivation. See
+    <li><strong>Deleting your account</strong> (Settings → Delete account) permanently removes the
+    server-side account/auth identity and associated social and account data. See
     <a href="#account-deletion">Account deletion</a> below for exactly what this does.</li>
   </ul>
 
@@ -182,10 +200,10 @@
     <li>Deletes the underlying account identity itself (not just the data associated with it), so
     nothing about you remains sign-in-able afterward.</li>
   </ol>
-  <p>This can't be undone, and there's no "grace period" — deletion happens immediately when you
-  confirm it. Deleting your account is separate from <strong>Settings → Clear all records</strong>,
-  which only erases your private photo history stored on this device and does not touch your
-  account or anything already published to friends — use Delete account for that.</p>
+  <p>This can't be undone. Cloud-object deletion may finish asynchronously. Deleting your account is
+  separate from <strong>Settings → Clear all records</strong>, which erases local-only private
+  captures from that device; uninstalling the app also handles local-only data. Delete account does
+  not necessarily synchronously erase every local file.</p>
 
   <h2>Local device data</h2>
   <p>Your private capture history (every Find attempt, published or not), your avatar photo, your
@@ -206,13 +224,14 @@
   understand your information may be processed outside your own country.</p>
 
   <h2>Children</h2>
-  <p>FindHue is not directed at children, and we don't knowingly collect information from children
-  under the age required by applicable law in your region. If you believe a child has provided us
-  information, contact us using the details below and we'll remove it.</p>
+  <p>FindHue is not directed to users below the minimum lawful age for independent use in their
+  jurisdiction. Where applicable, users must obtain required parent or guardian permission. If you
+  believe a child has provided us information improperly, contact us using the details below.</p>
 
   <h2>Changes to this policy</h2>
-  <p>We may update this policy as FindHue changes. We'll update the "Last updated" date above when
-  we do; continuing to use FindHue after a change means you accept the updated policy.</p>
+  <p>We may update this policy as FindHue changes and will update the "Last updated" date above.
+  Material changes may receive additional notice. We will request affirmative consent where legally
+  required; continued use is not treated as consent to every new processing activity.</p>
 
   <h2 id="contact">Contact</h2>
   <p>Questions about this policy or your data:

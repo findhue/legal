@@ -32,35 +32,35 @@
   <h2 id="contact-us">Contact us</h2>
   <p>The fastest way to reach us:
   <a href="mailto:support-findhue@edumon.studio">support-findhue@edumon.studio</a>.</p>
-  <p>We read every message, including bug reports, account issues, content reports you'd rather not
-  file in-app, and appeals of an account action.</p>
+  <p>Use this address for bugs, account issues, safety issues, direct content reports, questions, and
+  appeals.</p>
 
   <h2>Camera issues</h2>
-  <p><strong>"Can't share this photo" / the camera won't open.</strong> FindHue only asks for camera
+  <p><strong>The camera won't open.</strong> FindHue only asks for camera
   access the first time you tap <strong>Take Photo</strong>. If you said no, or turned it off
   later:</p>
   <ol>
     <li>Open your device's <strong>Settings</strong> app.</li>
     <li>Go to <strong>Privacy &amp; Security → Camera</strong>.</li>
-    <li>Find <strong>FindHue</strong> and turn it on.</li>
-    <li>Come back to FindHue and try again.</li>
+    <li>Find <strong>FindHue</strong> and turn it on. On some iOS versions you can also use
+    <strong>Settings → Apps → FindHue</strong>.</li>
+    <li>Close and reopen FindHue, then try again.</li>
   </ol>
 
   <h2>Publishing and network issues</h2>
-  <p>Every photo you take — good, bad, or in between — is saved privately on your device the instant
-  you confirm it, whether or not you ever publish it. So if publishing fails (no connection, or the
-  day's challenge has already ended at 10 PM Eastern), <strong>nothing is lost</strong> — your
-  attempt stays in that day's history and you can try publishing again, or just try again on the
-  next day's challenge.</p>
+  <p>Every confirmed attempt is saved privately on-device. A failed publish does not destroy it;
+  temporary network failures may retry while that challenge remains open. Once the 10 PM
+  America/New_York cutoff has passed, that challenge can no longer be published or replaced, but
+  the attempt remains in local history.</p>
 
   <h2>"This photo can't be shared" (moderation)</h2>
   <p>Every photo you publish is automatically checked before your friends can see it. If a photo
   doesn't pass that check, it's held back — your friends never see it, and it's not lost either: it
   stays in your own private history like any other attempt, and you can try again with a different
   photo. If you think a photo was blocked in error, contact us above.</p>
-  <p>If instead you see <strong>"We couldn't check this Find right now,"</strong> that means our
-  moderation service was temporarily unreachable — your photo is still saved privately, and you can
-  try publishing again in a bit.</p>
+  <p>If instead you see <strong>"We couldn't check this Find right now,"</strong>, the moderation check
+  could not complete. The photo stays local/private; FindHue may retry automatically when the app
+  returns to the foreground, and you can try again later. A failure never auto-approves a Find.</p>
 
   <h2>Friends and invite codes</h2>
   <ul>
@@ -68,22 +68,23 @@
     6-character invite code or scan their QR code.</li>
     <li><strong>Groups:</strong> Friend Group invite codes are 8 characters, and work the same way
     (enter or scan).</li>
-    <li><strong>Code not working?</strong> Codes are case-insensitive but must be entered exactly —
-    double check for a mixed-up 0/O or 1/I. Regenerating your own invite code invalidates the old
-    one.</li>
+    <li><strong>Code not working?</strong> Codes are case-insensitive. The invite alphabet excludes
+    <strong>0, O, 1, and I</strong>; if you see one, it was likely misread or copied incorrectly.
+    Regenerating a code invalidates the old one.</li>
     <li><strong>Blocked someone by accident?</strong> Settings → Blocked people → Unblock.
-    Unblocking doesn't restore the friendship automatically — you'll need to add each other
-    again.</li>
+    Unblocking doesn't restore the old friendship automatically — one person must send a new friend
+    request and the other accept it. Shared Friend Group membership is not automatically changed.</li>
   </ul>
 
-  <h2>Rewarded ads ("Watch an ad" for extra attempts)</h2>
+  <h2>Rewarded ads — Watch an ad for extra Find submissions</h2>
   <ul>
-    <li>Everyone gets 3 free Find submissions per day; watching a short ad unlocks another one.</li>
+    <li>Everyone gets 3 free Find submissions or replacements per challenge day; one verified
+    rewarded ad can unlock one additional Find submission. Captures, scoring, and private history
+    remain unlimited.</li>
     <li><strong>"No ad available right now"</strong> just means Google didn't have an ad to show at
     that moment — this is normal and not specific to your device; try again in a bit.</li>
-    <li><strong>Watched the ad but didn't get credit?</strong> Verification can take up to about a
-    minute after the ad finishes — if it's been longer than that and you're connected to the
-    internet, contact us.</li>
+    <li><strong>Watched the ad but didn't get credit?</strong> Server-side verification can take up
+    to roughly one minute. Closing early may grant no reward.</li>
     <li><strong>Something in an ad seemed inappropriate or age-inappropriate?</strong> Let us know —
     see <a href="#contact-us">Contact us</a> above — including roughly when you saw it, so we can
     follow up with our ad provider.</li>
@@ -95,10 +96,16 @@
   arriving:</p>
   <ol>
     <li>Open your device's <strong>Settings</strong> app.</li>
-    <li>Go to <strong>Notifications → FindHue</strong>.</li>
+    <li>Go to <strong>Apps → FindHue → Notifications → Allow Notifications</strong>. Depending on
+    your iOS version, <strong>Settings → Notifications → FindHue</strong> may also be available.</li>
     <li>Make sure notifications are turned on.</li>
     <li>In FindHue, confirm Settings → Reminders is switched on with a time set.</li>
   </ol>
+
+  <h2>Save account with Apple</h2>
+  <p>FindHue begins anonymously. Settings → Save account with Apple links Apple sign-in to your
+  existing account; it should not create an unrelated second account or erase current Find or social
+  data.</p>
 
   <h2>Deleting your account</h2>
   <ol>
@@ -106,12 +113,17 @@
     <li>Scroll to <strong>Account</strong>.</li>
     <li>Tap <strong>Delete account</strong>, then confirm.</li>
   </ol>
-  <p>This permanently removes your account, friend connections, groups, reports, blocks, and
-  published Finds — it can't be undone. This only appears once your device has a real backend
-  connection; if you'd like your locally-saved history removed instead (without deleting an
-  account), use <strong>Settings → Clear all records</strong>, which stays on this device and
-  doesn't affect anything already published to friends. See our
+  <p><strong>Delete account</strong> is permanent and removes the server-side identity and associated
+  social/account data; cloud-object cleanup may finish asynchronously. If you'd like your
+  locally-saved history removed instead, use <strong>Settings → Clear all records</strong>, which
+  removes private local history from that device and is not online account deletion. See our
   <a href="privacy.html">Privacy Policy</a> for exactly what each of these does.</p>
+
+  <h2>Reporting and appeals</h2>
+  <p>Report a Find in the app with a reason and optional note. The reported user is not told who
+  filed the report. For urgent concerns, contact <a href="mailto:support-findhue@edumon.studio">Support</a>;
+  for immediate danger, contact local emergency services. You may also contact Support to appeal a
+  suspension, restriction, or termination; not every appeal results in reversal.</p>
 
   <h2>More</h2>
   <ul>
