@@ -1,6 +1,6 @@
 # findhue/legal
 
-Published legal/support pages for **FindHue** (EduMon Studios), served via GitHub Pages.
+Published legal/support pages for **FindHue** (EduMon Studios LLC), served via GitHub Pages.
 
 Live at: `https://findhue.github.io/legal/` once Pages is enabled (Settings → Pages → Deploy from
 a branch → `main` / `/ (root)`).
