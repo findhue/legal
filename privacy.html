@@ -72,8 +72,9 @@
     history.</li>
 
     <li><strong>Publishing a Find</strong> is a separate, deliberate action ("Make This My Find").
-    Only the one photo you choose to publish for a given day — never your other attempts — is
-    uploaded to our storage provider (Cloudflare R2), along with its score, challenge date, target
+    Only photos you explicitly choose to publish as your Find are uploaded to our storage provider
+    (Cloudflare R2); private attempts you do not publish remain on your device. If you replace a
+    Find, the replacement photo may also be uploaded, along with its score, challenge date, target
     color, detected color, selected point, internal account identifier, and required technical
     metadata.</li>
 
@@ -136,15 +137,16 @@
   include:</p>
 
   <ul>
-    <li>You're identified to PostHog only by an opaque internal account identifier — never your
-    name, email, avatar, or any other personal detail.</li>
+    <li>FindHue identifies analytics records to PostHog using an opaque internal account
+    identifier rather than your name or email. We do not intentionally send your display name,
+    email address, or avatar as analytics properties.</li>
 
     <li>Every event FindHue sends goes through an allow-listed vocabulary of specific product events
     (e.g., "a Find was published," "a rewarded ad was watched") — not a general activity log.</li>
 
-    <li>A defense-in-depth filter strips anything that looks like a token, password, email address,
-    photo/file URI, invite code, or similar sensitive value from every event and crash report
-    before it's sent, even if it were accidentally included.</li>
+    <li>FindHue applies a defense-in-depth filter intended to remove tokens, passwords, email
+    addresses, photo/file URIs, invite codes, and similar sensitive values from analytics events
+    and error reports before transmission.</li>
 
     <li>Session replay, precise location/GeoIP enrichment, surveys, and remote feature flags are all
     turned off — FindHue doesn't use any of them.</li>
@@ -268,15 +270,16 @@
   <h2>Local device data</h2>
   <p>Your private capture history (every Find attempt, published or not), your avatar photo, your
   app preferences, and your reminder settings are stored only on your device using standard iOS
-  local storage. FindHue never uploads this local history — only the one photo per day you
-  explicitly choose to publish ever reaches our servers.</p>
+  local storage. FindHue does not upload private capture attempts unless you explicitly choose to
+  publish them as a Find. Photos you publish as a Find, including replacement Finds, may be uploaded
+  as described above.</p>
 
   <h2>Security</h2>
   <p>Data in transit to and from Supabase, Cloudflare R2, and Azure is encrypted (HTTPS/TLS).
-  Access to your data on our backend is enforced by database-level row-level-security rules scoped
-  to your own account. Photo storage uses short-lived, single-purpose links rather than permanent
-  public URLs. No system is perfectly secure, and we can't guarantee absolute security of any
-  information you transmit to us.</p>
+  Access to data on our backend is restricted using database-level row-level-security and
+  application authorization rules. Photo storage uses short-lived, single-purpose links rather
+  than permanent public URLs. No system is perfectly secure, and we can't guarantee absolute
+  security of any information you transmit to us.</p>
 
   <h2>International data processing</h2>
   <p>FindHue's backend and analytics infrastructure run on servers operated by our service
